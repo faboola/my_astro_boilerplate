@@ -1,0 +1,221 @@
+.logo {
+   svg {
+    height:3rem;
+   }
+}
+
+
+#mainHeader {
+	// position: fixed;
+	// top: 0;
+	// left: 0;
+	// width: 100%;
+	// z-index:1;
+    // transition: all 0.5s ease-in-out;
+}
+
+#mainHeader.scrolled {
+
+
+}
+
+.headerWrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+
+.mainMenuWrapper {
+    display: none;
+    @include media-breakpoint-up(lg) { 
+     display: block; }
+}
+.mainMenu {
+
+	
+	ul {
+        margin: 0;
+        padding: 0;
+		list-style-type: none;
+		display: flex;
+        align-items: center;
+
+	}
+
+	li.menuItem {
+		margin-right: 1rem;
+	}
+
+    .menuItem.social {
+        font-size: 1.75rem;
+        vertical-align: baseline;
+    }
+
+	a {
+	
+        text-decoration: none;
+     
+	}
+}
+
+
+.menuIconWrapper {
+    display: block;
+    @include media-breakpoint-up(lg) {
+    display:none;
+    }
+}
+
+
+/* ------------------------------ MOBILE CLASS ------------------------------ */
+#mainHeader.is-mobile {
+
+    .menuItem.theme {
+        display: none;
+    }
+   
+    .mainMenuWrapper{     
+
+       // display: block;
+        position:fixed;
+        top:0;
+        bottom:0;
+        left: 0;
+        right: 0;
+        margin:auto;
+        width:100%;
+        height:100vh;
+        z-index:1;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+    
+   
+
+            nav.mainMenu {
+                width: 100%;
+            }
+    
+            .mainMenu ul {
+                flex-flow:column;
+                align-items: center;
+                width: 100%;
+
+                li {
+                    width: 100%;
+                    text-align: center;
+                }
+                
+        
+                a {
+           
+                    font-size: 1.5rem;
+                    display: block;
+                    padding-top: 1rem;
+                    padding-bottom: 0.5rem;
+
+                    &:hover {
+             
+                     
+                    }
+                   
+                }
+
+                
+            }
+        }
+        
+        .logo {
+        svg {
+   
+        }
+        z-index:99;
+    
+    }
+
+    .menuIconWrapper {
+        z-index:999;
+    }
+
+    #navIcon span {
+      
+    }
+
+    .menuItem.themeSwitch {
+         
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    ICONA                                   */
+/* -------------------------------------------------------------------------- */
+
+
+#navIcon {
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    margin: 0 auto;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    z-index: 999
+}
+
+#navIcon span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: $light;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out
+}
+
+#navIcon span:first-child {
+    top: 0px
+}
+
+#navIcon span:nth-child(2) {
+    top: 12px
+}
+
+#navIcon span:nth-child(3) {
+    top: 24px
+}
+
+#navIcon.open span:first-child {
+    top: 18px;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg)
+}
+
+#navIcon.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px
+}
+
+#navIcon.open span:nth-child(3) {
+    top: 18px;
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg)
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  DARK MODE                                 */
+/* -------------------------------------------------------------------------- */
+
+
+

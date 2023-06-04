@@ -1,0 +1,165 @@
+---
+const { id } = Astro.props;
+---
+<div class="toggle-container">
+    <!-- <span class="light">
+        <i class="icon-sun"></i>
+    </span> -->
+    <div>
+        <label class="switch" aria-label="Switch theme">
+            <input id={id} class="theme-toggle" type="checkbox" 
+                onclick="togglePreference()" />
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <!-- <span class="dark">
+        <i class="icon-moon"></i>
+    </span> -->
+</div>
+
+
+
+<style>
+
+:root[data-theme="light"] {
+	--link-color: #efefef;
+	--background-color: #fff;
+	--color: #666;
+	--theme-slider-initial-transform: translateX(0px);
+    --light-theme-indicator-color: #ffcf00;
+    --dark-theme-indicator-color: var(--color);
+}
+
+:root[data-theme="dark"] {
+	--link-color: #efefef;
+	--background-color: #fff;
+	--color: #666;
+	--theme-slider-initial-transform: translateX(24px);
+    --light-theme-indicator-color: var(--color);
+    --dark-theme-indicator-color: #ffcf00;
+}
+	.theme-toggle {}
+
+.toggle-container {
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em; */
+}
+
+.light {
+    color: var(--light-theme-indicator-color);
+}
+
+.dark {
+    color: var(--dark-theme-indicator-color);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  transition: .4s;
+  border-width:1px;
+  border-style: solid;
+  border-color: #efefef;
+}
+
+
+.slider:before {
+  position: absolute;
+  font-family: 'faboola';
+   content: '\f185';
+   line-height: 1em;
+   left: 0;
+   display: inline-block;
+  height: 22px;
+  width: 22px;
+  text-align: center;
+  line-height: 22px;
+
+
+  transform: var(--theme-slider-initial-transform);
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: rgba(255,255,255,0.2)
+}
+input:checked + .slider:before {
+	position: absolute;
+  font-family: 'faboola';
+  content: '\f186';
+  
+   display: inline-block;
+
+   height: 22px;
+  width: 22px;
+  text-align: center;
+  line-height: 22px;
+
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 5px var(--link-color);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
+<script is:inline>
+	const storageKey = 'theme-preference'
+
+const getColorPreference = () => {
+    let preference = localStorage.getItem(storageKey);
+
+    if (!preference) {
+        preference = window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+    }
+
+    return preference;
+}
+
+const setPreference = (themeName) => {
+    localStorage.setItem(storageKey, themeName)
+
+    document.documentElement
+        .setAttribute('data-theme', themeName);
+}
+
+const togglePreference = () => {
+    setPreference(getColorPreference() === 'dark' ? 'light' : 'dark');
+}
+
+(() => {
+    const theme = getColorPreference();
+
+    setPreference(theme);
+})();
+</script>

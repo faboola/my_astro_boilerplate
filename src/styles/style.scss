@@ -1,0 +1,185 @@
+
+
+//COLORS:
+
+
+
+/**
+ * Import Bootstrap sources
+ */
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   IMPORTS                                  */
+/* -------------------------------------------------------------------------- */
+
+// Required: Configuration
+@import "../../node_modules/bootstrap/scss/functions";
+
+// Default variable overrides: https://getbootstrap.com/docs/5.0/customize/sass
+// $primary:       $faboola;
+// $body-color:                $black;
+
+// scss-docs-start gray-color-variables
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+//$dark : $gray-700;
+
+  
+
+// $body-bg:                   $white;
+// $body-color:                $gray-900;
+// $body-text-align:           null;
+
+// $navbar-light-color:                $black;
+// $navbar-light-hover-color:          $red;
+// $navbar-light-active-color:         rgba($black, .6);
+// $navbar-light-disabled-color:       rgba($black, .3);
+// $navbar-light-toggler-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+//$navbar-light-toggler-border-color: rgba($black, .1);
+
+$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+
+
+$h1-font-size:                $font-size-base * 3;
+$h2-font-size:                $font-size-base * 2.4;
+$h3-font-size:                $font-size-base * 1.75;
+$h4-font-size:                $font-size-base * 1.5;
+$h5-font-size:                $font-size-base * 1.25;
+$h6-font-size:                $font-size-base;
+// // Options
+// $enable-caret: true;
+// $enable-rounded: true;
+// $enable-shadows: false;
+// $enable-gradients: false;
+// $enable-transitions: true;
+// $enable-reduced-motion: true;
+// $enable-smooth-scroll: true;
+// $enable-grid-classes: false;
+// $enable-button-pointers: true;
+// $enable-rfs: true;
+// $enable-validation-icons: true;
+// $enable-negative-margins: false;
+// $enable-deprecation-messages: true;
+// $enable-important-utilities: true;
+
+// $spacer: 1rem;
+
+// // Grayscale vars
+// $gray-100: #f8f9fa;
+// $gray-200: #e9ecef;
+// $gray-300: #dee2e6;
+// $gray-400: #ced4da;
+// $gray-500: #adb5bd;
+// $gray-600: #6c757d;
+// $gray-700: #495057;
+// $gray-800: #343a40;
+// $gray-900: #212529;
+
+// // Color vars
+// $blue: #0d6efd;
+// $indigo: #6610f2;
+// $purple: #6f42c1;
+// $pink: #d63384;
+// $red: #dc3545;
+// $orange: #fd7e14;
+// $yellow: #ffc107;
+// $green: #198754;
+// $teal: #20c997;
+// $cyan: #0dcaf0;
+
+// Fonts
+// $font-family-sans-serif: 'Encode Sans', sans-serif;
+// $font-family-serif: 'PT Serif', serif;
+// $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+// $font-family-base: $font-family-sans-serif;
+
+//$headings-font-family:        'Manrope', sans-serif;
+
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1500px,
+  xxxl : 1990px
+);
+
+// $link-decoration: none;
+
+
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+
+
+
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+
+
+
+@import "../../node_modules/bootstrap/scss/root";
+
+// Optional: Uncomment all components that are not needed to reduce the filesize
+//@import "../../node_modules/bootstrap/scss/utilities";
+// Layout & components
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+//@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/tables";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/dropdown";
+//@import "../../node_modules/bootstrap/scss/button-group";
+@import "../../node_modules/bootstrap/scss/nav";
+//@import "../../node_modules/bootstrap/scss/navbar";
+//@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/accordion";
+//@import "../../node_modules/bootstrap/scss/breadcrumb";
+@import "../../node_modules/bootstrap/scss/pagination";
+//@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/progress";
+//@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/close";
+//@import "../../node_modules/bootstrap/scss/toasts";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/tooltip";
+//@import "../../node_modules/bootstrap/scss/popover";
+//@import "../../node_modules/bootstrap/scss/carousel";
+//@import "../../node_modules/bootstrap/scss/spinners";
+@import "../../node_modules/bootstrap/scss/offcanvas";
+// Helpers
+//@import "../../node_modules/bootstrap/scss/helpers";
+// Utilities
+//@import "../../node_modules/bootstrap/scss/utilities/api";
+
+
+//@import '../../node_modules/@splidejs/splide/css/spide-core.min.css';
+
+@import 'mixins';
+@import 'fonts';
+@import 'menus';
+@import 'homepage';
+
+@import 'custom';

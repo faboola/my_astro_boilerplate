@@ -1,0 +1,101 @@
+---
+
+---
+
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div> 
+
+
+<style>
+
+/* -------------------------------------------------------------------------- */
+/*                                  PRELOADER                                 */
+/* -------------------------------------------------------------------------- */
+
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+   
+	-webkit-background: linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #d911f2 66%, #ffa079 100%);
+    -moz-background: linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #d911f2 66%, #ffa079 100%);
+    background: linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #d911f2 66%, #ffa079 100%);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 5s ease infinite;
+    -moz-animation: Gradient 5s ease infinite;
+    animation: Gradient 5s ease infinite;
+
+    z-index: 99;
+    /* makes sure it stays on top */
+  }
+  
+  #status {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    /* centers the loading animation horizontally one the screen */
+    top: 50%;
+    /* centers the loading animation vertically one the screen */
+    background-image: url(/images/loader.svg);
+    /* path to your loading animation */
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -100px 0 0 -100px;
+    /* is width and height divided by two */
+  }
+  
+  
+  @keyframes shutter {
+    0% {
+   clip-path: polygon(0 0, 0% 100%, 50% 100%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 100%, 100% 100%, 100% 0%);
+  
+  }
+  
+    90% {
+  clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%, 100% 100%, 100% 0%);
+  }
+  
+  }
+  
+  .appear {
+       animation-name: shutter;
+       animation-duration:1s;
+  }
+</style>
+
+
+<script>
+
+/* -------------------------------------------------------------------------- */
+/*                                  PRELOADER                                 */
+/* -------------------------------------------------------------------------- */
+function fadeOut(el){
+	el.style.opacity = 1;
+  
+	(function fade() {
+	  if ((el.style.opacity -= .1) < 0) {
+		el.style.display = "none";
+	  } else {
+		requestAnimationFrame(fade);
+	  }
+	})();
+  };
+ 
+document.addEventListener('DOMContentLoaded',function(){
+
+	var preloader = document.querySelector('#preloader');
+	document.querySelector('body').classList.add("loaded");
+	document.querySelector('#preloader').classList.add("appear");
+	setTimeout(function(){fadeOut(preloader);}, 300);
+	//fadeOut(document.querySelector('#preloader'));
+	
+	
+
+  });
+
+</script>

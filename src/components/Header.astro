@@ -1,0 +1,95 @@
+---
+import  Logo  from './Logo.astro';
+import  ThemeSwitch from './ThemeSwitch.astro'
+import  Preloader from './Preloader.astro'
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+---
+
+
+<Preloader />
+<header class="header" id="mainHeader">
+    <div class="container">
+        <div class="headerWrapper">
+            <div class="logo"><a href="/" title="Torna alla home">
+            <Logo />
+            </a></div>
+            <div class="mainMenuWrapper">
+                <nav class="mainMenu">
+                    <ul>
+                        <li class="menuItem"><a href="/">HOME</a></li>
+                       
+                        <!-- <li class="menuItem social">
+                        social
+                        </li> -->
+                 
+                        <li class="menuItem themeSwitch">
+                            <!-- <ThemeSwitch id="theme-toggle" /> -->
+                        </li>
+                    </ul>
+
+            
+     
+                </nav>
+
+            
+                
+            </div>
+
+          
+
+           
+            <div class="menuIconWrapper">
+                <div id="navIcon" class="closed">
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+</header>
+
+<script>
+    //Add click event listener to menu
+
+document.getElementById('navIcon').addEventListener("click",addMenuClass);
+
+//Menu AddClass
+
+function addMenuClass() {
+    var navIcon = document.getElementById('navIcon');
+    var header = document.getElementById('mainHeader');
+  
+   	navIcon.classList.toggle('open');
+  	header.classList.toggle('is-mobile');
+	document.documentElement.classList.toggle('noscroll');
+
+
+}
+
+    /* -------------------------------------------------------------------------- */
+    /* STICKY NAVBAR */
+    /* -------------------------------------------------------------------------- */
+
+    const nav = document.querySelector('#mainHeader'); //definisco l'elemento da modificare (navbar)
+    let navTop = nav.offsetHeight; //prendo l'altezza della navbar
+
+    function fixedNav() {
+
+        if (window.scrollY > navTop) { //se lo scroll verticale è maggiore dell'altezza della navbar
+            nav
+                .classList
+                .add('scrolled'); //allora aggiungi una classe alla navbar
+        } else {
+            nav
+                .classList
+                .remove('scrolled'); //altrimenti togli la classe
+        }
+    }
+
+    window.addEventListener('scroll', fixedNav); //sull'evento scroll fai partire la funzione sopra.
+</script>

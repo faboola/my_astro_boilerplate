@@ -1,0 +1,50 @@
+@mixin default-max-widths($max-widths: $container-max-widths, 
+  $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
+    }  
+  }
+}
+
+
+@mixin button($background: $primary, $text: $dark) {
+
+  background: $background;
+  color: $text;
+  padding:0.75rem 1.5rem;
+  border:none;
+  //border-radius:$border-radius;
+  text-decoration: none;
+
+  &:hover  {
+    background:darken($background,10%);
+  }
+  
+
+
+}
+
+@mixin button-hollow($border: $dark, $text:$dark) {
+  background:transparent;
+  color: $text;
+  padding:0.5rem 1rem;
+  @include media-breakpoint-up(lg) { 
+    padding:0.75rem 1.5rem;
+    }
+  border:1px solid $text;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+  
+  &:hover  {
+    background:transparentize($light,0.8);
+  }
+
+}
+
+
+@mixin text-gradient($from, $to) {
+  background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
